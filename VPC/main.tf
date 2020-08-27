@@ -16,7 +16,7 @@ resource "aws_vpc" "vpc" {
 
 ##############################
 #### Availability Zone #####
-############################
+##############################
 
 
 data "aws_availability_zones" "available" {
