@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 provider "kubernetes" {
-  host = 
+  host  = module.cluster1.endpoint
 }
 
 module "VPC" {
@@ -20,19 +20,13 @@ module "SG" {
 module "instances" {
   source                 = "./EC2"
   subnet_a               = module.VPC.subnet_a_id
+  subnet_b               = module.VPC.subnet_b_id
   vpc_security_group_ids = module.SG.SG_id
 }
 
 module "cluster1" {
-  source          = "terraform-aws-modules/eks/aws"
-  cluster_version = "1.16"
-  subnets         = [module.VPC.subnet_a_id, module.VPC.subnet_b_id]
+  source          = "./EKS"
+  subnet_a        = module.VPC.subnet_a_id
+  subnet_b        = module.VPC.subnet_b_id
   vpc_id          = module.VPC.vpc_id
-
-  worker_groups = [
-    {
-      instance_type = "t2.micro"
-      asg_max_size = 2
-    }
-  ]
 }

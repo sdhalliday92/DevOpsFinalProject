@@ -1,6 +1,6 @@
 variable "DevOpsVPC" { 
   description = "CIDR Block for vpc"
-  default = "172.16.0.0/16"
+  default = "172.25.0.0/16"
 }
 
 variable "subnet_a" { 

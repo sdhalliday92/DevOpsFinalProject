@@ -5,7 +5,7 @@
 
 
 resource "aws_vpc" "vpc" {
-  DevOpsVPC            = var.DevOpsVPC
+  cidr_block            = var.DevOpsVPC
   enable_dns_hostnames = true
 
   tags = {
@@ -32,7 +32,7 @@ data "aws_availability_zones" "available" {
 
 resource "aws_subnet" "subnet_a" {
   vpc_id            = aws_vpc.vpc.id
-  DevOpsVPC         = var.subnet_a
+  cidr_block         = var.subnet_a
   availability_zone = data.aws_availability_zones.available.names[0]
   
   tags = {
@@ -42,8 +42,8 @@ resource "aws_subnet" "subnet_a" {
 
 resource "aws_subnet" "subnet_b" {
   vpc_id            = aws_vpc.vpc.id
-  DevOpsVPC         = var.subnet_b
-  availability_zone = data.aws_availability_zones.available.names[0]
+  cidr_block         = var.subnet_b
+  availability_zone = data.aws_availability_zones.available.names[1]
   
   tags = {
         Name = "AWSsubnet"
@@ -70,7 +70,7 @@ resource "aws_route_table" "r" {
   vpc_id = aws_vpc.vpc.id
 
   route {
-    DevOpsVPC = var.open_i
+    cidr_block = var.open_i
     gateway_id = aws_internet_gateway.TerraformIG.id
   }
 }

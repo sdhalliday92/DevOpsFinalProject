@@ -28,4 +28,20 @@ variable "subnet_a" {
   default     = "subnet_a_id"
 }
 
+variable "subnet_b" {
+  description = "This variable states the subnet ID within the VPC"
+  default     = "subnet_b_id"
+}
+
 variable "vpc_security_group_ids" {}
+
+
+variable "username" {
+  description = "Username For RDS"
+  default     = "admin"
+}
+
+variable "password" {
+  description = "Password for RDS"
+  default     = "C5]K}w9~T;u.WFe-"
+}

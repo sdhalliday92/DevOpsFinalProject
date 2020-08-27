@@ -1,8 +1,3 @@
-output "DevOpsVPC" {
-  value = aws_vpc.vpc.vpc_id
-}
-
-
 output "subnet_a_id" {
   value = aws_subnet.subnet_a.id
 }
