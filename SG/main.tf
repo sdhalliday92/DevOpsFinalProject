@@ -1,3 +1,8 @@
+############################
+#### Security Group ########
+############################
+
+
 resource "aws_security_group" "sg_web" {
   name        = var.sg_web_name
   description = var.sg_web_description

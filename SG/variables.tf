@@ -3,7 +3,7 @@ variable "sg_web_name" {
 }
 
 variable "sg_web_description" {
-  default = "Allow SSH"
+  default = "Allow SSH, Jekins &"
 }
 
 variable "ext_cidr_block" {
@@ -13,7 +13,7 @@ variable "ext_cidr_block" {
 variable "ingress_ports" {
   type        = list(number)
   description = "List of ingress ports"
-  default     = [22, 8080, 80]
+  default     = [22, 8080, 80, 3306, 4200, 9966]
 }
 
 variable "outbound_port" {
