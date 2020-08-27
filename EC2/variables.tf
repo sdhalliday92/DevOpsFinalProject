@@ -29,3 +29,14 @@ variable "subnet_a" {
 }
 
 variable "vpc_security_group_ids" {}
+
+
+variable "username" {
+  description = "Username For RDS"
+  default     = "admin"
+}
+
+variable "password" {
+  description = "Password for RDS"
+  default     = "C5]K}w9~T;u.WFe-"
+}

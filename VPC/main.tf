@@ -5,7 +5,7 @@
 
 
 resource "aws_vpc" "vpc" {
-  DevOpsVPC            = var.DevOpsVPC
+  cidr_block           = var.DevOpsVPC
   enable_dns_hostnames = true
 
   tags = {

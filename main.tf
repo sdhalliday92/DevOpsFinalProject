@@ -5,7 +5,8 @@ provider "aws" {
 }
 
 provider "kubernetes" {
-  host = 
+  host  = data.aws_eks_cluster.cluster.endpoint
+  token = data.aws_eks_cluster_auth.cluster.token
 }
 
 module "VPC" {
