@@ -10,7 +10,7 @@ variable "instancemed" {
 
 variable "ami_kube" {
   description = "This variable states the ami ID for the EC2 instance"
-  default     = "ami-07ee42ba0209b6d77"
+  default     = "ami-09bf36bbdeaf2c5ce"
 }
 
 variable "ami_rds" {
@@ -44,4 +44,9 @@ variable "username" {
 variable "password" {
   description = "Password for RDS"
   default     = "C5]K}w9~T;u.WFe-"
+}
+
+variable "user_data" {
+  description = "script to run when creating instance"
+  default = "data.template_file.init.rendered"
 }
